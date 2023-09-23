@@ -4,6 +4,7 @@ namespace App\Http\UseCases;
 
 use App\Dtos\CredentialData;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use JWTAuth;
 
@@ -20,6 +21,7 @@ class AuthenticateUseCase
     }
 
     return [
+      'user' => Auth::user(),
       'token' => $token,
     ];
   }
